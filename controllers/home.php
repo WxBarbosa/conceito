@@ -6,15 +6,18 @@ class Home extends Controller{
         parent::__construct();
     }
 
-    public function index(){
+    public function index(){ 
         $this->view->render('home/index',true);
     }
 
-    public function show($arg = null){
-        if($arg == null){
-            echo 'Argumentos vazios não são permitidos!';
+    public function testsession(){  // Função teste de consulta SELECT e sessão
+        
+        $this->model->login();
+        Session::init();
+        if(Session::get('loggedIn')){
+            echo 'Logado!';
         }else{
-            echo 'Showzao';
+            echo 'Não Logado!';
         }
     }
 }
