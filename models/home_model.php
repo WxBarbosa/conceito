@@ -6,21 +6,10 @@ class Home_Model extends Model{
         parent::__construct();
     }
 
-    public function login(){
-        $sth = $this->db->prepare("SELECT * FROM cliente WHERE id=:id");
-
-        $sth->execute(array(
-            ':id' => $_GET['id']
-        ));
-
-        $data = $sth->fetchAll();
-
-        //$count = $sth->rowCount();
-
-        //if($count > 0){
-        print_r($data);
-        //}else{
-
-        //}
+    public function GetAllCategories(){
+        $sth = $this->db->prepare("SELECT * FROM categorias INNER JOIN sub_categorias ON categorias.id = sub_categorias.id_categorias ORDER BY categorias.nome, sub_categorias.nome");
+        $sth->execute();
+        $data = $sth->fetchAll();        
+        return $data;
     }
 }

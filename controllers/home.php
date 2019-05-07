@@ -10,14 +10,21 @@ class Home extends Controller{
         $this->view->render('home/index',true);
     }
 
-    public function testsession(){  // Função teste de consulta SELECT e sessão
+    // public function testsession(){  // Função teste de consulta SELECT e sessão
         
-        $this->model->login();
-        Session::init();
-        if(Session::get('loggedIn')){
-            echo 'Logado!';
-        }else{
-            echo 'Não Logado!';
-        }
+    //     $this->model->login();
+    //     Session::init();
+    //     if(Session::get('loggedIn')){
+    //         echo 'Logado!';
+    //     }else{
+    //         echo 'Não Logado!';
+    //     }
+    // }
+
+    public function GetAllCategories(){
+        $categoryId = $_GET['categoryId']; 
+        $sub_categoryId = $_GET['sub_categoryId'];
+        $data = $this->model->GetAllCategories();
+        echo  json_encode($data);
     }
 }
