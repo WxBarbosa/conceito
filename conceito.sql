@@ -50,7 +50,7 @@ INSERT INTO `categorias` (`id`, `nome`) VALUES
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
   `nome` varchar(250) NOT NULL,
-  `sexo` int(11) NOT NULL,
+  `sexo` varchar(1) NOT NULL,
   `cpf` varchar(25) NOT NULL,
   `senha` varchar(25) NOT NULL,
   `email` varchar(100) NOT NULL
