@@ -191,7 +191,7 @@ ALTER TABLE `sub_categorias`
 -- Limitadores para a tabela `produto`
 --
 ALTER TABLE `produto`
-  ADD CONSTRAINT `produto_ibfk_1` FOREIGN KEY (`id_sub_categoria`) REFERENCES `categorias` (`id`);
+  ADD CONSTRAINT `produto_ibfk_1` FOREIGN KEY (`id_sub_categoria`) REFERENCES `sub_categorias` (`id`);
 
 --
 -- Limitadores para a tabela `sub_categorias`
