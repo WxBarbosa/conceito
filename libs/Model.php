@@ -3,7 +3,7 @@
 class Model {
 
     function __construct(){
-        $this->db = new Database(); // Cria nova conexão
+        $this->db = Database::getInstance(); // Cria nova conexão
     }
  
 }
