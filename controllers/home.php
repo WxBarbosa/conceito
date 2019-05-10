@@ -12,12 +12,12 @@ class Home extends Controller{
 
     public function GetAllMenuCategories(){
         $data = $this->model->GetAllMenuCategories();
-        print(json_encode($data));
+        print(json_encode($data,JSON_UNESCAPED_UNICODE));
     }
 
     public function GetAllMenuSubCategories(){
         $data = $this->model->GetAllMenuSubCategories();
-        print(json_encode($data));
+        print(json_encode($data,JSON_UNESCAPED_UNICODE));
     }
 
     public function GetSubCategoriesByCategoryId($id){
@@ -26,7 +26,7 @@ class Home extends Controller{
         }else{
             $data = [];
         }        
-        print(json_encode($data));
+        print(json_encode($data,JSON_UNESCAPED_UNICODE));
     }
 
     public function GetUser($id){
@@ -36,7 +36,7 @@ class Home extends Controller{
         }else{
             $data = [];
         }        
-        print(json_encode($data));
+        print(json_encode($data,JSON_UNESCAPED_UNICODE));
     }
 
     public function GetProduct($name){
@@ -45,6 +45,6 @@ class Home extends Controller{
         }else{
             $data = [];
         }        
-        print(json_encode($data));
+        print(json_encode($data,JSON_UNESCAPED_UNICODE));
     }
 }

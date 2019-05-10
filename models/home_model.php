@@ -58,8 +58,8 @@ class Home_Model extends Model{
     }
 
     public function GetProduct($name){
-        $sth = $this->db->prepare("SELECT cli.nome, prod.nome, c.preco FROM compra AS c INNER JOIN cliente AS cli ON cli.id=c.id_cliente INNER JOIN produto AS prod ON c.id_produto = prod.id WHERE prod.nome LIKE :nome ");
-        $sth->bindValue(":nome",$name);
+        $sth = $this->db->prepare("SELECT cli.nome AS cliente_nome, prod.nome AS produto_nome, c.preco AS compra_preco FROM compra AS c INNER JOIN cliente AS cli ON cli.id=c.id_cliente INNER JOIN produto AS prod ON c.id_produto = prod.id WHERE prod.nome LIKE :nome");
+        $sth->bindValue(":nome","%".$name."%", PDO::PARAM_STR);
         $sth->execute();
         $data = $sth->fetchAll(PDO::FETCH_OBJ);
         return $data;
