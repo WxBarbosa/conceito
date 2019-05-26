@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Maio-2019 às 22:42
+-- Generation Time: 26-Maio-2019 às 17:33
 -- Versão do servidor: 10.1.38-MariaDB
--- versão do PHP: 7.1.28
+-- versão do PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -56,6 +56,16 @@ CREATE TABLE `cliente` (
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `nome`, `sexo`, `cpf`, `senha`, `email`) VALUES
+(1, 'Wyll', 'M', '037', '123', 'wyll@gmail.com'),
+(2, 'Karen', 'F', '038', '1234', 'karen@gmail.com'),
+(3, 'Matheus', 'M', '039', '123', 'matheus@gmail.com'),
+(4, 'Khalita', 'F', '040', '1234', 'khalita@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -72,6 +82,14 @@ CREATE TABLE `compra` (
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `compra`
+--
+
+INSERT INTO `compra` (`id`, `id_produto`, `id_cliente`, `quantidade`, `preco`, `total`, `data`) VALUES
+(1, 1, 1, 2, 80, 160, '2019-05-09 00:00:00'),
+(2, 2, 1, 2, 250, 500, '2019-05-10 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -85,6 +103,14 @@ CREATE TABLE `produto` (
   `imagem` varchar(250) NOT NULL,
   `id_sub_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`id`, `nome`, `preco`, `imagem`, `id_sub_categoria`) VALUES
+(1, 'Shorts Vermelho', 80, '', 1),
+(2, 'Blusa Star Wars', 250, '', 5);
 
 -- --------------------------------------------------------
 
@@ -111,7 +137,7 @@ INSERT INTO `sub_categorias` (`id`, `nome`, `id_categoria`) VALUES
 (6, 'Bolsas', 2),
 (7, 'Relógios', 2),
 (8, 'Óculos', 2),
-(9, 'Maquiagem', 2);
+(9, 'Maquiagens', 2);
 
 --
 -- Indexes for dumped tables
@@ -163,19 +189,19 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sub_categorias`
