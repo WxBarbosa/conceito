@@ -3,11 +3,22 @@ $(document).ready(function(){
 
     function loadProductList(){
         
+        var url = window.location.href.split('/')
+        var categoryId = url[6]
+
         var html= '';
+
+        $.getJSON(server+'/conceito/shop/GetSubCategoryById/'+categoryId,function(data){
+            let titleSubcategory = $(".title_subcategory");
+            $.each(data, function(key,value){
+                titleSubcategory.html(value.nome)
+            })
+        })
         // Recebe o JSON
-        $.getJSON(server+'/conceito/home/GetAllProducts',function(data){
+        $.getJSON(server+'/conceito/shop/GetProductsBySubCategoryId/'+categoryId,function(data){
             // Incorpora a Div principal
             let productList = $("#product-list");
+            
             $.each(data, function(key,value){
                 html += `
                     <div class="col-md-3 col-sm-6">

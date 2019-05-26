@@ -6,5 +6,5 @@
     </nav>
     <!--Fim da navegação-->
 
-    <script src="<?php echo URL; ?>public/js/home/categories.js">
+    <script src="<?php echo URL; ?>public/js/layout/categories.js">
     </script>

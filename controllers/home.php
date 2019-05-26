@@ -39,12 +39,17 @@ class Home extends Controller{
         print(json_encode($data,JSON_UNESCAPED_UNICODE));
     }
 
-    public function GetProduct($name){
-        if(isset($name)){
-            $data = $this->model->GetProduct($name);
+    public function GetProductByCategoryId($categoryId){
+        if(isset($categoryId)){
+            $data = $this->model->GetProductByCategoryId($categoryId);
         }else{
             $data = [];
         }        
+        print(json_encode($data,JSON_UNESCAPED_UNICODE));
+    }
+
+    public function GetAllProducts(){
+        $data = $this->model->GetAllProducts();     
         print(json_encode($data,JSON_UNESCAPED_UNICODE));
     }
 }

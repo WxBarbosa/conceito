@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26-Maio-2019 às 17:33
+-- Generation Time: 26-Maio-2019 às 21:57
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.4
 
@@ -109,8 +109,11 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id`, `nome`, `preco`, `imagem`, `id_sub_categoria`) VALUES
-(1, 'Shorts Vermelho', 80, '', 1),
-(2, 'Blusa Star Wars', 250, '', 5);
+(1, 'Shorts Vermelho', 80, 'http://localhost/conceito/public/img/roupas/roupa1.png', 1),
+(2, 'Blusa Star Wars', 250, 'http://localhost/conceito/public/img/roupas/roupa2.png', 1),
+(3, 'Shorts Vermelho 2', 80, 'http://localhost/conceito/public/img/roupas/roupa1.png', 2),
+(4, 'Shorts Vermelho 2', 80, 'http://localhost/conceito/public/img/roupas/roupa1.png', 2),
+(5, 'Shorts Vermelho 2', 80, 'http://localhost/conceito/public/img/roupas/roupa1.png', 2);
 
 -- --------------------------------------------------------
 
@@ -201,7 +204,7 @@ ALTER TABLE `compra`
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sub_categorias`

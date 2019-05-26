@@ -1,10 +1,12 @@
 $(document).ready(function(){
+    
+    var server = window.location.protocol+ '//' +document.location.hostname;
 
     function loadCategories(){
         
         var html= '';
         // Recebe o JSON
-        $.getJSON('./home/GetAllMenuCategories',function(data){
+        $.getJSON(server+'/conceito/home/GetAllMenuCategories',function(data){
             // Incorpora a Div principal
             let menuCategories = $("#navbarNavAltMarkup1");
             //Começa a inserir o conteúdo na var HTML para inserir na MenuCategorias
@@ -42,13 +44,12 @@ $(document).ready(function(){
         
         var html= '';
 
-        $.getJSON('./home/GetSubCategoriesByCategoryId/'+categoryId,function(data){
-            console.log(data)
+        $.getJSON(server+'/conceito/home/GetSubCategoriesByCategoryId/'+categoryId,function(data){
             let menuSubCategories = $("#categoryId_"+categoryId);
             html += '<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">'
             
             $.each(data, function(key, value){
-                html += '<a class="dropdown-item text-secondary" href="'+ value.id +'">'+ value.nome +'</a>'
+                html += '<a class="dropdown-item text-secondary" href="'+server+'/conceito/shop/index/'+ value.id +'">'+ value.nome +'</a>'
             })        
             html += '</div>'
             menuSubCategories.append(html)
